@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SlothDesk — Slow & Steady Offline AI Tidier</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="sloth-avatar" id="slothAvatar">🦥</div>
+        <div>
+          <h1>SlothDesk</h1>
+          <p class="subtitle">Slow & Steady Offline AI File Tidier • International Sloth Day Edition</p>
+        </div>
+      </div>
+      <div class="badge-status">
+        <span class="pulse-dot"></span>
+        <span id="modelStatus">Local Model: Llama-3.2-3B (Offline)</span>
+      </div>
+    </header>
+
+    <!-- Project Manifesto Card -->
+    <section class="card manifesto-card">
+      <div class="manifesto-header">
+        <h2>Why Open Innovation Matters for SlothDesk</h2>
+        <span class="tag">100% Zero-Cloud / Free Forever</span>
+      </div>
+      <div class="grid-3">
+        <div class="feature-box">
+          <h3>🔒 True Zero-Leak Privacy</h3>
+          <p>Bank statements, sensitive code, and personal notes stay strictly on your RAM. Open weights run locally with zero telemetry or network calls.</p>
+        </div>
+        <div class="feature-box">
+          <h3>⚡ Completely Offline</h3>
+          <p>Organize your messy laptop on a flight, in a cabin, or during a blackout. No API rate limits, no subscriptions, and zero downtime.</p>
+        </div>
+        <div class="feature-box">
+          <h3>🦥 Rewards Laziness</h3>
+          <p>Set it up once via Ollama, let it monitor your Downloads folder, and never waste mental energy dragging files into folders again.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Workspace -->
+    <main class="grid-2">
+      <!-- Left: Cluttered Files -->
+      <section class="card">
+        <div class="panel-header">
+          <div>
+            <h2>Downloads Clutter (<span id="clutterCount">0</span>)</h2>
+            <p class="panel-sub">Messy files waiting for the local model to inspect & rename</p>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" id="btnReset">Reset Files</button>
+            <button class="btn btn-primary" id="btnOrganize">🦥 Run Slow & Steady</button>
+          </div>
+        </div>
+
+        <div class="file-list" id="unorganizedList">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" multiple style="display:none" />
+          <p>Drag & drop personal files here or <span class="highlight" id="browseTrigger">browse</span> to test</p>
+        </div>
+      </section>
+
+      <!-- Right: Organized Bins & Live Inference Terminal -->
+      <section class="card">
+        <div class="panel-header">
+          <div>
+            <h2>Organized Vault</h2>
+            <p class="panel-sub">Clean categories created on your local drive</p>
+          </div>
+        </div>
+
+        <!-- Terminal log -->
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <span>Terminal: Ollama Local Inference Stream</span>
+            <span class="terminal-status" id="terminalStatus">IDLE</span>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <div class="log-line text-dim">// SlothDesk Engine ready. Awaiting unorganized files...</div>
+          </div>
+        </div>
+
+        <!-- Category Bins -->
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with ❤️ for International Sloth Day • Powered by Open-Source AI (Llama 3.2 + Ollama + Python)</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
